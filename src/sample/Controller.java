@@ -1,17 +1,21 @@
 package sample;
 
 import java.io.File;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
+import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
+import javafx.scene.input.TransferMode;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
-public class Controller
+public class Controller implements Initializable
 {
 	private Stage mPrimaryStage;
 
@@ -32,12 +36,34 @@ public class Controller
 		mPrimaryStage = primaryStage;
 	}
 
+	/**
+	 * 初始化
+	 *
+	 * @param location
+	 * @param resources
+	 */
+	@Override
+	public void initialize(URL location, ResourceBundle resources)
+	{
+		ottFilePath.setOnDragOver(new EventHandler<DragEvent>()
+		{
+			@Override
+			public void handle(DragEvent event)
+			{
+				/**
+				 * 显示文件拖拽的状态，否则图标是禁止的
+				 */
+				event.acceptTransferModes(TransferMode.ANY);
+			}
+		});
+	}
+
 	public void ottDragDropEvent(DragEvent event)
 	{
 		Dragboard dragboard = event.getDragboard();
 		if (dragboard.hasFiles())
 		{
-			dragboard.getFiles().get(0).getPath();
+			ottFilePath.setText(dragboard.getFiles().get(0).getPath());
 		}
 	}
 
