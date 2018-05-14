@@ -1,4 +1,4 @@
-package sample;
+package com.excellence.filetools;
 
 import java.io.File;
 import java.net.URL;
@@ -12,7 +12,7 @@ import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import sample.utils.FileDragEventHandler;
+import com.excellence.filetools.events.FileDragEventHandler;
 
 public class Controller implements Initializable
 {

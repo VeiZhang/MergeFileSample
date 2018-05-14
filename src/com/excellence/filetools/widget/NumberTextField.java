@@ -1,4 +1,4 @@
-package sample;
+package com.excellence.filetools.widget;
 
 import javafx.scene.control.TextField;
 
