@@ -12,7 +12,12 @@ public class Main extends Application
 	@Override
 	public void start(Stage primaryStage) throws Exception
 	{
-		Parent root = FXMLLoader.load(getClass().getResource("main.fxml"));
+		// Load root layout from fxml file
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(getClass().getResource("main.fxml"));
+		Parent root = loader.load();
+
+		// Show the scene containing the root layout
 		primaryStage.setTitle("合并文件工具");
 		primaryStage.setScene(new Scene(root, 520, 300));
 		/**
