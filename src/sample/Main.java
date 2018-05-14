@@ -25,6 +25,10 @@ public class Main extends Application
 		 */
 		primaryStage.setResizable(false);
 		primaryStage.show();
+
+		// relate controller with application
+		Controller controller = loader.getController();
+		controller.setStage(primaryStage);
 	}
 
 	public static void main(String[] args)
