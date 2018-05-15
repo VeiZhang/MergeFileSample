@@ -137,6 +137,7 @@ public class Controller implements Initializable
 
 					mFilePackager = new FilePackager(ottFilePath.getText(), ottVersion.getText(), tvFilePath.getText(), tvVersion.getText());
 					mFilePackager.packMergeFile();
+					subscriber.onCompleted();
 				}
 				catch (Exception e)
 				{
