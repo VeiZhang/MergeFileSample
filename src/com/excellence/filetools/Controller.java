@@ -47,6 +47,8 @@ public class Controller implements Initializable
 	@FXML
 	private TextField tvVersion;
 
+	private FilePackager mFilePackager = null;
+
 	public void setStage(Stage primaryStage)
 	{
 		mPrimaryStage = primaryStage;
@@ -118,9 +120,14 @@ public class Controller implements Initializable
 	{
 		try
 		{
-			FilePackager filePackager = new FilePackager(ottFilePath.getText(), ottVersion.getText(), tvFilePath.getText(), tvVersion.getText());
-			filePackager.packMergeFile();
-			showInfoAlert(filePackager.getMergeFilePath(), filePackager.getMergeVersion());
+			if (mFilePackager != null)
+			{
+				mFilePackager.deleteTempFile();
+			}
+
+			mFilePackager = new FilePackager(ottFilePath.getText(), ottVersion.getText(), tvFilePath.getText(), tvVersion.getText());
+			mFilePackager.packMergeFile();
+			showInfoAlert(mFilePackager.getMergeFilePath(), mFilePackager.getMergeVersion());
 		}
 		catch (Exception e)
 		{

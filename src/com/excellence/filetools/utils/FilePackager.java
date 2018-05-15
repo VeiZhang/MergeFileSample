@@ -67,8 +67,8 @@ public class FilePackager
 		/**
 		 * 优先保存OTT软件，方便{@link java.nio.channels.FileChannel#truncate(long)}：保留前多少byte的文件
 		 */
-		saveUpgradeFile(headerInfoList, OTT, mOttFile, Integer.parseInt(mOttVersion), accessFile);
-		saveUpgradeFile(headerInfoList, TV, mTvFile, Integer.parseInt(mTvVersion), accessFile);
+		saveUpgradeFile(headerInfoList, OTT, mOttFile, mOttVersion, accessFile);
+		saveUpgradeFile(headerInfoList, TV, mTvFile, mTvVersion, accessFile);
 		header.setHeaderInfoList(headerInfoList);
 
 		/**
@@ -143,7 +143,7 @@ public class FilePackager
 		return headerStr;
 	}
 
-	private void saveUpgradeFile(List<HeaderInfoListBean> headerInfoList, TYPE type, File upgradeFile, int version, RandomAccessFile accessFile) throws Exception
+	private void saveUpgradeFile(List<HeaderInfoListBean> headerInfoList, TYPE type, File upgradeFile, String version, RandomAccessFile accessFile) throws Exception
 	{
 		if (!upgradeFile.exists())
 		{
@@ -157,7 +157,7 @@ public class FilePackager
 			accessFile.write(buf, 0, len);
 		}
 		is.close();
-		headerInfoList.add(new HeaderInfoListBean(type, upgradeFile.length(), upgradeFile.exists(), version));
+		headerInfoList.add(new HeaderInfoListBean(type, upgradeFile.length(), upgradeFile.exists(), Integer.parseInt(version)));
 	}
 
 	private String generateMergeFile() throws Exception
@@ -206,4 +206,9 @@ public class FilePackager
 	{
 		return string == null || string.isEmpty();
 	}
+
+    public void deleteTempFile() {
+        if (mMergeFile != null && mMergeFile.exists())
+            mMergeFile.delete();
+    }
 }
