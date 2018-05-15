@@ -8,6 +8,7 @@ import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -23,6 +24,10 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import rx.Observable;
+import rx.Subscriber;
+import rx.schedulers.Schedulers;
+
 import com.excellence.filetools.events.FileDragEventHandler;
 import com.excellence.filetools.utils.FilePackager;
 
@@ -118,24 +123,63 @@ public class Controller implements Initializable
 
 	public void mergeFileEvent(ActionEvent event)
 	{
-		try
+		Observable.create(new Observable.OnSubscribe<FilePackager>()
 		{
-			if (mFilePackager != null)
+			@Override
+			public void call(Subscriber<? super FilePackager> subscriber)
 			{
-				mFilePackager.deleteTempFile();
+				try
+				{
+					if (mFilePackager != null)
+					{
+						mFilePackager.deleteTempFile();
+					}
+
+					mFilePackager = new FilePackager(ottFilePath.getText(), ottVersion.getText(), tvFilePath.getText(), tvVersion.getText());
+					mFilePackager.packMergeFile();
+				}
+				catch (Exception e)
+				{
+					subscriber.onError(e);
+				}
+			}
+		}).subscribeOn(Schedulers.io()).observeOn(Schedulers.io()).subscribe(new Subscriber<FilePackager>()
+		{
+			@Override
+			public void onCompleted()
+			{
+				Platform.runLater(new Runnable()
+				{
+					@Override
+					public void run()
+					{
+						showInfoAlert(mFilePackager.getMergeFilePath(), mFilePackager.getMergeVersion());
+					}
+				});
 			}
 
-			mFilePackager = new FilePackager(ottFilePath.getText(), ottVersion.getText(), tvFilePath.getText(), tvVersion.getText());
-			mFilePackager.packMergeFile();
-			showInfoAlert(mFilePackager.getMergeFilePath(), mFilePackager.getMergeVersion());
-		}
-		catch (Exception e)
-		{
-			showErrorAlert(e);
-		}
+			@Override
+			public void onError(Throwable throwable)
+			{
+				Platform.runLater(new Runnable()
+				{
+					@Override
+					public void run()
+					{
+						showErrorAlert(throwable);
+					}
+				});
+			}
+
+			@Override
+			public void onNext(FilePackager filePackager)
+			{
+
+			}
+		});
 	}
 
-	private void showErrorAlert(Exception e)
+	private void showErrorAlert(Throwable e)
 	{
 		Alert alert = new Alert(Alert.AlertType.ERROR, "", new ButtonType("确定", ButtonBar.ButtonData.YES));
 		alert.setTitle("警告");
@@ -165,7 +209,7 @@ public class Controller implements Initializable
 		alert.showAndWait();
 	}
 
-	private String printException(Exception e)
+	private String printException(Throwable e)
 	{
 		// Create expandable Exception.
 		StringWriter sw = new StringWriter();
@@ -174,7 +218,7 @@ public class Controller implements Initializable
 		return sw.toString();
 	}
 
-	private void showInfoAlert(File mergeFile, int mergeVersion) throws Exception
+	private void showInfoAlert(File mergeFile, int mergeVersion)
 	{
 		Alert alert = new Alert(Alert.AlertType.INFORMATION, "", ButtonType.OK);
 		alert.setTitle("成功");
@@ -184,8 +228,15 @@ public class Controller implements Initializable
 		Optional<ButtonType> optionalType = alert.showAndWait();
 		if (optionalType.get() == ButtonType.OK)
 		{
-			// 打开目录
-			Desktop.getDesktop().open(mergeFile.getParentFile());
+			try
+			{
+				// 打开目录
+				Desktop.getDesktop().open(mergeFile.getParentFile());
+			}
+			catch (Exception e)
+			{
+				showErrorAlert(e);
+			}
 		}
 	}
 
