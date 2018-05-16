@@ -54,7 +54,7 @@ public class Controller implements Initializable
 	private TextField tvVersion;
 
 	private FilePackager mFilePackager = null;
-	private Alert mProgressAlert = null;
+	private String mFileChooserInitPath = null;
 
 	public void setStage(Stage primaryStage)
 	{
@@ -109,9 +109,22 @@ public class Controller implements Initializable
 	private File getChooserFile(final String description, final String... extensions)
 	{
 		FileChooser fileChooser = new FileChooser();
+		if (mFileChooserInitPath != null)
+		{
+			File initFile = new File(mFileChooserInitPath);
+			if (initFile.exists())
+			{
+				fileChooser.setInitialDirectory(initFile);
+			}
+		}
 		FileChooser.ExtensionFilter extensionFilter = new FileChooser.ExtensionFilter(description, extensions);
 		fileChooser.getExtensionFilters().add(extensionFilter);
-		return fileChooser.showOpenDialog(mPrimaryStage);
+		File selectedFile = fileChooser.showOpenDialog(mPrimaryStage);
+		if (selectedFile != null)
+		{
+			mFileChooserInitPath = selectedFile.getParent();
+		}
+		return selectedFile;
 	}
 
 	public void tvSelectEvent(ActionEvent event)
