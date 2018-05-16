@@ -12,10 +12,12 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.DragEvent;
@@ -53,6 +55,7 @@ public class Controller implements Initializable
 	private TextField tvVersion;
 
 	private FilePackager mFilePackager = null;
+	private Alert mProgressAlert = null;
 
 	public void setStage(Stage primaryStage)
 	{
@@ -123,6 +126,7 @@ public class Controller implements Initializable
 
 	public void mergeFileEvent(ActionEvent event)
 	{
+		showProgressDialog();
 		Observable.create(new Observable.OnSubscribe<FilePackager>()
 		{
 			@Override
@@ -180,8 +184,33 @@ public class Controller implements Initializable
 		});
 	}
 
+	private void showProgressDialog()
+	{
+		hideProgressDialog();
+
+		mProgressAlert = new Alert(Alert.AlertType.NONE);
+
+		GridPane pane = new GridPane();
+		pane.setMaxWidth(Double.MAX_VALUE);
+		pane.setAlignment(Pos.CENTER);
+		pane.add(new ProgressIndicator(), 0, 0);
+		mProgressAlert.getDialogPane().setContent(pane);
+
+		mProgressAlert.show();
+	}
+
+	private void hideProgressDialog()
+	{
+		if (mProgressAlert != null)
+		{
+			mProgressAlert.close();
+		}
+	}
+
 	private void showErrorAlert(Throwable e)
 	{
+		hideProgressDialog();
+
 		Alert alert = new Alert(Alert.AlertType.ERROR, "", new ButtonType("确定", ButtonBar.ButtonData.YES));
 		alert.setTitle("警告");
 		alert.setHeaderText("合成文件失败！");
@@ -203,6 +232,7 @@ public class Controller implements Initializable
 		expContent.add(label, 0, 0);
 		expContent.add(textArea, 0, 1);
 
+		// 设置可隐藏的窗口
 		// Set expandable Exception into the dialog pane.
 		alert.getDialogPane().setExpandableContent(expContent);
 		/**************详细信息**************/
@@ -221,6 +251,8 @@ public class Controller implements Initializable
 
 	private void showInfoAlert(File mergeFile, int mergeVersion)
 	{
+		hideProgressDialog();
+
 		Alert alert = new Alert(Alert.AlertType.INFORMATION, "", ButtonType.OK);
 		alert.setTitle("成功");
 		alert.setHeaderText("生成文件路径：" + mergeFile);
