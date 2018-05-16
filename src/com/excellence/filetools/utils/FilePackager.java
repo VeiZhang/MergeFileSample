@@ -166,7 +166,7 @@ public class FilePackager
 		mMergeVersion = 0;
 		if (mOttFile.exists() && mTvFile.exists())
 		{
-			if (isEmpty(mTvVersion) && isEmpty(mOttVersion))
+			if (isEmpty(mTvVersion) || isEmpty(mOttVersion))
 			{
 				throw new Exception("OTT版本和TV版本必填");
 			}
@@ -207,8 +207,11 @@ public class FilePackager
 		return string == null || string.isEmpty();
 	}
 
-    public void deleteTempFile() {
-        if (mMergeFile != null && mMergeFile.exists())
-            mMergeFile.delete();
-    }
+	public void deleteTempFile()
+	{
+		if (mMergeFile != null && mMergeFile.exists())
+		{
+			mMergeFile.delete();
+		}
+	}
 }
