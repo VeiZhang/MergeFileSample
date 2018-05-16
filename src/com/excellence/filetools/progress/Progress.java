@@ -1,22 +1,21 @@
-package com.excellence.filetools.progress;/**
-											* <pre>
-											*     author : VeiZhang
-											*     blog   : http://tiimor.cn
-											*     time   : 2018/5/16
-											*     desc   :
-											* </pre>
-											*/
+package com.excellence.filetools.progress;
 
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.control.ProgressIndicator;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-public class Progress extends AnchorPane
+/**
+ * <pre>
+ *     author : VeiZhang
+ *     blog   : http://tiimor.cn
+ *     time   : 2018/5/16
+ *     desc   :
+ * </pre>
+ */
+
+public class Progress
 {
 	private static Progress mInstance = new Progress();
 
@@ -24,8 +23,11 @@ public class Progress extends AnchorPane
 
 	public static Progress getInstance(Stage parent)
 	{
-		// 窗口父子关系
-		mInstance.mStage.initOwner(parent);
+		if (mInstance.mStage.getOwner() == null)
+		{
+			// 窗口父子关系
+			mInstance.mStage.initOwner(parent);
+		}
 		return mInstance;
 	}
 
@@ -33,7 +35,7 @@ public class Progress extends AnchorPane
 	{
 		try
 		{
-			Parent root = FXMLLoader.load(getClass().getResource("progress.fxml"));
+			ProgressIndicator progressIndicator = new ProgressIndicator();
 			mStage = new Stage();
 			mStage.initStyle(StageStyle.UNDECORATED);
 			// 去掉标题栏
@@ -41,7 +43,10 @@ public class Progress extends AnchorPane
 			// 应用模态，不能操作父窗口
 			mStage.initModality(Modality.APPLICATION_MODAL);
 			mStage.setTitle("等待");
-			mStage.setScene(new Scene(root, 300, 275));
+
+			Scene scene = new Scene(progressIndicator, 100, 100);
+			scene.setFill(null);
+			mStage.setScene(scene);
 			mStage.setResizable(false);
 		}
 		catch (Exception e)

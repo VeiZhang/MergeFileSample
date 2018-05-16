@@ -7,10 +7,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="新增等待框">
-      <change afterPath="$PROJECT_DIR$/src/com/excellence/filetools/progress/Progress.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/excellence/filetools/progress/progress.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/excellence/filetools/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/excellence/filetools/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/excellence/filetools/progress/Progress.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/excellence/filetools/progress/Progress.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -90,33 +89,46 @@
       <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/excellence/filetools/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="143">
-              <caret line="129" column="23" selection-start-line="129" selection-start-column="23" selection-end-line="129" selection-end-column="23" />
+            <state relative-caret-position="393">
+              <caret line="143" column="42" selection-start-line="143" selection-start-column="42" selection-end-line="143" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#4294#4295#0" expanded="true" />
+                <element signature="e#4334#4335#0" expanded="true" />
+                <element signature="e#4542#4543#0" expanded="true" />
+                <element signature="e#4570#4571#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Progress.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Progress.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/excellence/filetools/progress/Progress.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
-              <caret line="34" column="9" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="44">
+              <caret line="2" column="26" lean-forward="true" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="progress.fxml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="progress.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/excellence/filetools/progress/progress.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder" />
-          <provider selected="true" editor-type-id="text-editor">
+          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+          <provider editor-type-id="text-editor">
             <state relative-caret-position="220">
               <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FilePackager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/excellence/filetools/utils/FilePackager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1002">
+              <caret line="213" column="32" selection-start-line="213" selection-start-column="32" selection-end-line="213" selection-end-column="32" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -166,11 +178,12 @@
         <option value="$PROJECT_DIR$/src/com/excellence/filetools/Main.java" />
         <option value="$PROJECT_DIR$/src/com/excellence/filetools/utils/Constants.java" />
         <option value="$PROJECT_DIR$/src/com/excellence/filetools/bean/Header.java" />
-        <option value="$PROJECT_DIR$/src/com/excellence/filetools/utils/FilePackager.java" />
         <option value="$PROJECT_DIR$/src/com/excellence/filetools/progress/A.form" />
-        <option value="$PROJECT_DIR$/src/com/excellence/filetools/Controller.java" />
-        <option value="$PROJECT_DIR$/src/com/excellence/filetools/progress/Progress.java" />
         <option value="$PROJECT_DIR$/src/com/excellence/filetools/progress/progress.fxml" />
+        <option value="$PROJECT_DIR$/.idea/workspace.xml" />
+        <option value="$PROJECT_DIR$/src/com/excellence/filetools/Controller.java" />
+        <option value="$PROJECT_DIR$/src/com/excellence/filetools/utils/FilePackager.java" />
+        <option value="$PROJECT_DIR$/src/com/excellence/filetools/progress/Progress.java" />
       </list>
     </option>
   </component>
@@ -197,8 +210,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Revu" />
-      <pane id="AndroidView" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -206,6 +217,11 @@
             <path>
               <item name="MergeFileSample" type="b2602c69:ProjectViewProjectNode" />
               <item name="MergeFileSample" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MergeFileSample" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MergeFileSample" type="462c0819:PsiDirectoryNode" />
+              <item name=".idea" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MergeFileSample" type="b2602c69:ProjectViewProjectNode" />
@@ -250,7 +266,9 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Revu" />
       <pane id="PackagesPane" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -479,7 +497,21 @@
       <option name="project" value="LOCAL" />
       <updated>1526439124565</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="自定义等待窗口">
+      <created>1526472242804</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1526472242804</updated>
+    </task>
+    <task id="LOCAL-00015" summary="优化错误提示">
+      <created>1526473176831</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1526473176831</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -498,7 +530,7 @@
       <window_info anchor="bottom" id="reVu" order="10" weight="0.58312654" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" weight="0.32913166" />
       <window_info anchor="right" id="Maven Projects" order="4" weight="0.3295129" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.38655463" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.38655463" />
       <window_info anchor="bottom" id="Version Control" order="13" weight="0.32913166" />
       <window_info anchor="bottom" id="Terminal" order="15" weight="0.18487395" />
       <window_info id="Capture Tool" order="5" />
@@ -619,21 +651,15 @@
     <MESSAGE value="rxjava缺少完成处理" />
     <MESSAGE value="rxjava缺少处理" />
     <MESSAGE value="新增等待框" />
-    <option name="LAST_COMMIT_MESSAGE" value="新增等待框" />
+    <MESSAGE value="自定义等待窗口" />
+    <MESSAGE value="优化错误提示" />
+    <option name="LAST_COMMIT_MESSAGE" value="优化错误提示" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/excellence/filetools/main.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="7" column="11" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
@@ -862,16 +888,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/excellence/filetools/utils/FilePackager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1144">
-          <caret line="71" column="49" selection-start-line="71" selection-start-column="49" selection-end-line="71" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk/javafx-src.zip!/javafx/scene/control/TextInputDialog.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1492">
@@ -933,11 +949,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/excellence/filetools/progress/A.java" />
     <entry file="file://$PROJECT_DIR$/src/com/excellence/filetools/progress/A.form" />
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-924" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/excellence/filetools/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="422">
@@ -960,20 +971,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/excellence/filetools/Controller.java">
+    <entry file="file://$PROJECT_DIR$/src/com/excellence/filetools/progress/progress.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="129" column="23" selection-start-line="129" selection-start-column="23" selection-end-line="129" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="242">
+          <caret line="11" column="11" lean-forward="true" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk/javafx-src.zip!/javafx/stage/StageStyle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5">
+          <caret line="46" column="4" selection-start-line="46" selection-start-column="4" selection-end-line="46" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk/javafx-src.zip!/javafx/stage/Stage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="249" column="32" selection-start-line="249" selection-start-column="32" selection-end-line="249" selection-end-column="32" />
+        <state relative-caret-position="221">
+          <caret line="567" column="17" selection-start-line="567" selection-start-column="17" selection-end-line="567" selection-end-column="17" />
           <folding>
             <element signature="e#41620#41621#0" expanded="true" />
             <element signature="e#41642#41643#0" expanded="true" />
@@ -981,21 +1004,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/excellence/filetools/progress/Progress.java">
+    <entry file="file://$PROJECT_DIR$/src/com/excellence/filetools/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="34" column="9" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
+        <state relative-caret-position="393">
+          <caret line="143" column="42" selection-start-line="143" selection-start-column="42" selection-end-line="143" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4294#4295#0" expanded="true" />
+            <element signature="e#4334#4335#0" expanded="true" />
+            <element signature="e#4542#4543#0" expanded="true" />
+            <element signature="e#4570#4571#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/excellence/filetools/utils/FilePackager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1002">
+          <caret line="213" column="32" selection-start-line="213" selection-start-column="32" selection-end-line="213" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/excellence/filetools/progress/progress.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
+    <entry file="file://$PROJECT_DIR$/src/com/excellence/filetools/progress/Progress.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
+        <state relative-caret-position="44">
+          <caret line="2" column="26" lean-forward="true" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
         </state>
       </provider>
     </entry>

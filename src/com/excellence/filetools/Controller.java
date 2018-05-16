@@ -31,6 +31,7 @@ import rx.Subscriber;
 import rx.schedulers.Schedulers;
 
 import com.excellence.filetools.events.FileDragEventHandler;
+import com.excellence.filetools.progress.Progress;
 import com.excellence.filetools.utils.FilePackager;
 
 public class Controller implements Initializable
@@ -188,23 +189,12 @@ public class Controller implements Initializable
 	{
 		hideProgressDialog();
 
-		mProgressAlert = new Alert(Alert.AlertType.NONE);
-
-		GridPane pane = new GridPane();
-		pane.setMaxWidth(Double.MAX_VALUE);
-		pane.setAlignment(Pos.CENTER);
-		pane.add(new ProgressIndicator(), 0, 0);
-		mProgressAlert.getDialogPane().setContent(pane);
-
-		mProgressAlert.show();
+		Progress.getInstance(mPrimaryStage).show();
 	}
 
 	private void hideProgressDialog()
 	{
-		if (mProgressAlert != null)
-		{
-			mProgressAlert.close();
-		}
+		Progress.getInstance(mPrimaryStage).close();
 	}
 
 	private void showErrorAlert(Throwable e)
