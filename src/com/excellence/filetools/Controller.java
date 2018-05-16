@@ -12,12 +12,10 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Pos;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
-import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.DragEvent;
@@ -31,7 +29,7 @@ import rx.Subscriber;
 import rx.schedulers.Schedulers;
 
 import com.excellence.filetools.events.FileDragEventHandler;
-import com.excellence.filetools.progress.Progress;
+import com.excellence.filetools.widget.Progress;
 import com.excellence.filetools.utils.FilePackager;
 
 public class Controller implements Initializable

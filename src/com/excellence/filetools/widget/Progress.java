@@ -1,4 +1,4 @@
-package com.excellence.filetools.progress;
+package com.excellence.filetools.widget;
 
 import javafx.scene.Scene;
 import javafx.scene.control.ProgressIndicator;
