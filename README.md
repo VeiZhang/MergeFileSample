@@ -8,5 +8,5 @@
 
 <!-- 图片链接 -->
 
-[example1]:https://github.com/VeiZhang/MergeFileSample/blob/master/images/example1.png
-[example2]:https://github.com/VeiZhang/MergeFileSample/blob/master/images/example2.png
+[example1]:https://github.com/VeiZhang/MergeFileSample/blob/master/images/example1.png?raw=true
+[example2]:https://github.com/VeiZhang/MergeFileSample/blob/master/images/example2.png?raw=true
