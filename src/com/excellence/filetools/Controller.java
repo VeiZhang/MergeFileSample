@@ -1,6 +1,10 @@
 package com.excellence.filetools;
 
-import java.awt.Desktop;
+import com.excellence.filetools.events.FileDragEventHandler;
+import com.excellence.filetools.utils.FilePackager;
+import com.excellence.filetools.widget.Progress;
+
+import java.awt.*;
 import java.io.File;
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -12,12 +16,10 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonBar;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.layout.GridPane;
@@ -27,10 +29,6 @@ import javafx.stage.Stage;
 import rx.Observable;
 import rx.Subscriber;
 import rx.schedulers.Schedulers;
-
-import com.excellence.filetools.events.FileDragEventHandler;
-import com.excellence.filetools.widget.Progress;
-import com.excellence.filetools.utils.FilePackager;
 
 public class Controller implements Initializable
 {
@@ -71,7 +69,7 @@ public class Controller implements Initializable
 	public void initialize(URL location, ResourceBundle resources)
 	{
 		/**
-		 * 也可以直接使用fxml的方式
+		 * 也可以直接使用fxml的方式，拖拽文件到编辑框，显示目录
 		 */
 		ottFilePath.setOnDragOver(new FileDragEventHandler(OTT_EXTENSION));
 		tvFilePath.setOnDragOver(new FileDragEventHandler(TV_EXTENSION));
